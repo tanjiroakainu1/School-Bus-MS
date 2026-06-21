@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-slate-50 font-sans text-slate-900 antialiased;
+  }
+
+  ::selection {
+    @apply bg-blue-100 text-blue-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2 active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6;
+  }
+
+  .card-interactive {
+    @apply card transition-all duration-200 hover:border-slate-300 hover:shadow-md;
+  }
+
+  .input-field {
+    @apply min-h-[44px] w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm transition-all duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold tracking-wide;
+  }
+
+  .page-shell {
+    @apply animate-fade-in space-y-6 sm:space-y-8;
+  }
+
+  .stat-grid {
+    @apply grid grid-cols-1 gap-4 xs:grid-cols-2 xl:grid-cols-4;
+  }
+
+  .content-grid {
+    @apply grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2;
+  }
+
+  .glass-header {
+    @apply sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md;
+  }
+
+  .table-shell {
+    @apply overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  .table-scroll {
+    @apply overflow-x-auto;
+  }
+
+  .data-table {
+    @apply w-full min-w-[640px] text-left text-sm;
+  }
+
+  .data-table thead {
+    @apply border-b border-slate-200 bg-slate-50;
+  }
+
+  .data-table th {
+    @apply px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-500 sm:px-6;
+  }
+
+  .data-table td {
+    @apply px-4 py-4 text-slate-700 sm:px-6;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-slate-100 transition-colors last:border-0 hover:bg-slate-50;
+  }
+
+  .mobile-card-list {
+    @apply space-y-3 sm:hidden;
+  }
+
+  .mobile-card-item {
+    @apply rounded-2xl border border-slate-200 bg-white p-4 shadow-sm;
+  }
+
+  .hero-banner {
+    @apply relative overflow-hidden rounded-3xl bg-gradient-to-br p-6 text-white shadow-md sm:p-8;
+  }
+
+  .nav-scroll {
+    @apply flex gap-2 overflow-x-auto pb-1;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-title {
+    @apply text-lg font-bold tracking-tight text-slate-900 sm:text-xl;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 py-12 text-center;
+  }
+
+  .developer-avatar {
+    @apply relative flex items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-teal-500 font-sans text-white shadow-lg shadow-blue-500/25 ring-2 ring-white/20;
+  }
+
+  .developer-avatar::after {
+    content: '';
+    @apply absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/25 to-transparent;
+  }
+
+  .developer-card-sidebar {
+    @apply flex items-center gap-3 rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50/80 to-teal-50/50 p-3;
+  }
+
+  .developer-card-public {
+    @apply flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm sm:flex-row sm:gap-5;
+  }
+
+  .developer-card-login {
+    @apply flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-gradient-to-r from-slate-50 to-blue-50/40 p-4 sm:flex-row sm:gap-4;
+  }
+
+  .developer-card-role {
+    @apply flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 shadow-sm backdrop-blur-sm;
+  }
+
+  .developer-skill-badge {
+    @apply rounded-full border border-white/10 bg-white/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-300;
+  }
+
+  .developer-skill-badge-light {
+    @apply rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-xs font-bold text-blue-200;
+  }
+
+  .developer-showcase {
+    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/90 via-blue-950/80 to-teal-950/70 p-8 shadow-2xl backdrop-blur-xl sm:p-10;
+  }
+
+  .developer-showcase-glow {
+    @apply pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl;
+  }
+
+  .developer-pill {
+    @apply inline-flex rounded-full border border-amber-400/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-300;
+  }
+
+  .developer-sparkle {
+    @apply animate-pulse text-amber-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
