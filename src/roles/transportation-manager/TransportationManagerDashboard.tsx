@@ -49,20 +49,20 @@ export default function TransportationManagerDashboard() {
         <StatCard label="Capacity Used" value={`${capacityUsed}%`} icon="💺" color={teal} />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <WeeklyTripsChart title="Weekly Trip Volume" subtitle="Trips completed across all routes" />
         </div>
         <FleetStatusChart data={fleetData} subtitle={`${buses.length} buses in fleet`} />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="chart-grid-secondary">
         <RouteCapacityChart data={routeCapacityData} />
         <RequestsStatusChart data={requestData} />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <AttendanceTrendChart title="Student Attendance Trend" subtitle="Monthly boarding attendance rates" />
         </div>
         <HourlyActivityChart title="Peak Hours" subtitle="Bus activity by time of day" />

@@ -51,8 +51,8 @@ export default function BusDriverDashboard() {
         <StatCard label="Notifications" value={unreadNotifications} icon="🔔" color={slate} />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <DriverTripReportsChart
             data={tripChartData}
             title="My Trip Performance"
@@ -66,7 +66,7 @@ export default function BusDriverDashboard() {
         />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="chart-grid-secondary">
         <RouteCapacityChart
           data={routeCapacityData}
           title="Route Capacity"

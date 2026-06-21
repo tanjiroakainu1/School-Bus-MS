@@ -35,7 +35,7 @@ export default function Sidebar({ config, isOpen, isCollapsed, onClose, onToggle
       <aside
         className={`fixed left-0 top-0 z-50 flex h-full flex-col border-r border-slate-200 bg-white shadow-lg transition-all duration-300 ease-in-out lg:z-30 lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } ${isCollapsed ? 'lg:w-20' : 'w-72 lg:w-64'}`}
+        } ${isCollapsed ? 'lg:w-20' : 'w-[min(100vw,18rem)] max-w-[85vw] lg:w-64'}`}
         aria-label="Sidebar navigation"
       >
         <div className={`flex items-center border-b border-slate-200 p-4 ${isCollapsed ? 'lg:justify-center lg:px-2' : 'justify-between'}`}>

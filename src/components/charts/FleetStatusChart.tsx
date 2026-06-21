@@ -34,9 +34,9 @@ export default function FleetStatusChart({
             <Pie
               data={chartData}
               cx="50%"
-              cy="50%"
-              innerRadius={60}
-              outerRadius={100}
+              cy="45%"
+              innerRadius="42%"
+              outerRadius="68%"
               paddingAngle={4}
               dataKey="value"
               stroke="none"
@@ -53,11 +53,11 @@ export default function FleetStatusChart({
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div className={`mt-2 grid gap-2 text-center ${chartData.length <= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+      <div className={`mt-2 grid gap-1.5 text-center 2xs:gap-2 ${chartData.length <= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
         {chartData.map((item) => (
-          <div key={item.name} className="rounded-xl bg-slate-50 p-2">
-            <p className="text-lg font-bold" style={{ color: item.color }}>{item.value}</p>
-            <p className="text-xs text-slate-500">{item.name}</p>
+          <div key={item.name} className="rounded-lg bg-slate-50 p-1.5 2xs:rounded-xl 2xs:p-2">
+            <p className="text-base font-bold 2xs:text-lg" style={{ color: item.color }}>{item.value}</p>
+            <p className="text-[10px] text-slate-500 2xs:text-xs">{item.name}</p>
           </div>
         ))}
       </div>

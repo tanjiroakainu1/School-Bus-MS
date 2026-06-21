@@ -39,28 +39,28 @@ export default function SuperAdminDashboard() {
       </div>
 
       {/* Primary analytics row */}
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <WeeklyTripsChart />
         </div>
         <FleetStatusChart />
       </div>
 
-      {/* Secondary analytics row */}
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="chart-grid-secondary">
         <RouteCapacityChart />
         <HourlyActivityChart />
       </div>
 
-      {/* Tertiary analytics row */}
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <AttendanceTrendChart />
         </div>
         <SystemHealthRadar />
       </div>
 
-      <UsersByRoleChart />
+      <div className="chart-grid-full">
+        <UsersByRoleChart />
+      </div>
 
       <Card title="Quick Actions" subtitle="Jump to key administration areas">
         <QuickActionGrid

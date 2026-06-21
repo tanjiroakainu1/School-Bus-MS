@@ -32,7 +32,7 @@ export default function TransportationRecords() {
         description="View all transportation and attendance records"
       />
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="filter-bar">
         <TabGroup
           tabs={tabs}
           activeTab={activeTab}

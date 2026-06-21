@@ -62,8 +62,8 @@ export default function TransportationHistory() {
         badge={config.title}
       />
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <ParentAttendanceChart
             data={weeklyData}
             title="Attendance Over Time"
@@ -73,9 +73,12 @@ export default function TransportationHistory() {
         <ParentChildrenChart data={childrenData} />
       </div>
 
-      <AttendanceTrendChart title="Monthly Overview" subtitle="Attendance trends across the school year" />
+      <div className="chart-grid-full">
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <AttendanceTrendChart title="Monthly Overview" subtitle="Attendance trends across the school year" />
+      </div>
+
+      <div className="filter-bar">
         <TabGroup
           tabs={tabs}
           activeTab={filter}

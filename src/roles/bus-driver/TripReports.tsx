@@ -55,8 +55,8 @@ export default function TripReports() {
         }
       />
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <DriverTripReportsChart
             data={tripChartData}
             title="Trip Report Analytics"
@@ -70,7 +70,9 @@ export default function TripReports() {
         />
       </div>
 
-      <WeeklyTripsChart title="Weekly Trip Benchmark" subtitle="System-wide trip volume reference" />
+      <div className="chart-grid-full">
+        <WeeklyTripsChart title="Weekly Trip Benchmark" subtitle="System-wide trip volume reference" />
+      </div>
 
       {reports.length === 0 ? (
         <Card>

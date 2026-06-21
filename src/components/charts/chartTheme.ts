@@ -9,8 +9,8 @@ export const CHART_TOOLTIP = {
   boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
 };
 
-export const CHART_AXIS_TICK = { fill: '#64748b', fontSize: 12 };
-export const CHART_AXIS_TICK_SM = { fill: '#64748b', fontSize: 11 };
+export const CHART_AXIS_TICK = { fill: '#64748b', fontSize: 11 };
+export const CHART_AXIS_TICK_SM = { fill: '#64748b', fontSize: 10 };
 
-export const CHART_HEIGHT = 'h-72 w-full sm:h-80';
-export const CHART_HEIGHT_COMPACT = 'h-72 w-full';
+export const CHART_HEIGHT = 'h-52 w-full min-w-0 2xs:h-56 xs:h-64 sm:h-72 md:h-80';
+export const CHART_HEIGHT_COMPACT = 'h-48 w-full min-w-0 2xs:h-52 xs:h-60 sm:h-72';

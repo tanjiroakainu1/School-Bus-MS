@@ -66,7 +66,7 @@ export default function BusArrivalNotifications() {
         <AlertBanner type="success" message="Notification dismissed successfully." />
       )}
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="filter-bar">
         <TabGroup
           tabs={tabs}
           activeTab={activeTab}

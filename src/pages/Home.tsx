@@ -10,12 +10,12 @@ export default function Home() {
   return (
     <div className="animate-fade-in">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="relative overflow-hidden px-3 py-12 2xs:px-4 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <span className="mb-6 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-slate-200">
+          <span className="mb-4 inline-flex rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-200 2xs:mb-6 2xs:px-4 2xs:py-1.5 2xs:text-xs">
             Safe · Smart · Connected
           </span>
-          <h1 className="text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-balance text-3xl font-extrabold tracking-tight text-white 2xs:text-4xl sm:text-5xl lg:text-6xl">
             School Bus{' '}
             <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
               Management System
@@ -70,18 +70,18 @@ export default function Home() {
           </div>
 
           {/* Flow diagram */}
-          <div className="mt-12 overflow-x-auto rounded-3xl border border-slate-500/20 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-            <div className="flex min-w-[600px] items-center justify-between gap-2 text-center text-xs font-bold text-slate-200 sm:min-w-0 sm:text-sm">
+          <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-500/20 bg-white/5 p-4 backdrop-blur-sm touch-scroll sm:rounded-3xl sm:p-6 md:overflow-visible md:p-8">
+            <div className="flex min-w-[280px] flex-col gap-4 text-center text-xs font-bold text-slate-200 sm:min-w-0 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
               {['Visit Home', 'Login / Register', 'Role Dashboard', 'Sidebar Nav', 'Manage & Report'].map((label, i, arr) => (
-                <div key={label} className="flex flex-1 items-center">
+                <div key={label} className="flex flex-1 flex-col items-center gap-2 sm:flex-row">
                   <div className="flex flex-1 flex-col items-center gap-2">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-white shadow-lg">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-700 text-sm text-white shadow-lg 2xs:h-10 2xs:w-10">
                       {i + 1}
                     </div>
-                    <span className="max-w-[80px] leading-tight">{label}</span>
+                    <span className="max-w-[120px] leading-tight sm:max-w-[80px]">{label}</span>
                   </div>
                   {i < arr.length - 1 && (
-                    <div className="mx-1 hidden h-0.5 flex-1 bg-slate-500/50 sm:block" />
+                    <div className="mx-auto hidden h-8 w-0.5 bg-slate-500/50 sm:mx-1 sm:block sm:h-0.5 sm:w-auto sm:flex-1" />
                   )}
                 </div>
               ))}

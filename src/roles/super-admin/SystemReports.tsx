@@ -91,12 +91,12 @@ export default function SystemReports() {
         <AlertBanner type="success" message="Report generated successfully." />
       )}
 
-      <div className="grid grid-cols-2 gap-3 xs:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-2.5 min-w-0 2xs:grid-cols-2 xs:gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {reportTypes.map((report) => (
           <button
             key={report.id}
             onClick={() => setSelectedReport(report.id)}
-            className={`card-interactive flex flex-col items-center gap-2 p-4 text-center ${
+            className={`card-interactive flex min-h-[88px] flex-col items-center justify-center gap-1.5 p-3 text-center 2xs:min-h-[96px] 2xs:gap-2 2xs:p-4 ${
               selectedReport === report.id
                 ? `border-slate-400 ${config.accentBg} ring-2 ring-slate-200`
                 : ''
@@ -145,7 +145,7 @@ export default function SystemReports() {
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="chart-grid-secondary">
         {ActiveCharts.map((ChartComponent, index) => (
           <ChartComponent key={`${selectedReport}-${index}`} />
         ))}

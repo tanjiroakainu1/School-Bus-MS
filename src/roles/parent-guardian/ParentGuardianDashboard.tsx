@@ -50,8 +50,8 @@ export default function ParentGuardianDashboard() {
         <StatCard label="Notifications" value={unreadNotifications} icon="🔔" color={slate} />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className="chart-grid-primary">
+        <div className="chart-grid-primary-main">
           <ParentAttendanceChart
             data={weeklyData}
             title="Recent Attendance Trend"
@@ -65,7 +65,7 @@ export default function ParentGuardianDashboard() {
         />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="chart-grid-secondary">
         <AttendanceTrendChart title="Monthly Attendance" subtitle="Long-term attendance patterns" />
         <HourlyActivityChart title="Bus Schedule Peaks" subtitle="When buses are most active" />
       </div>

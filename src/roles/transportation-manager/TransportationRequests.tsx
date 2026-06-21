@@ -49,12 +49,12 @@ export default function TransportationRequests() {
       />
 
       <Card noPadding>
-        <div className="border-b border-slate-100 px-5 py-4 sm:px-6">
+        <div className="border-b border-slate-100 px-4 py-3 sm:px-6 sm:py-4">
           <SearchInput
             value={search}
             onChange={setSearch}
             placeholder="Search by student, type, or notes..."
-            className="max-w-md"
+            className="w-full"
           />
         </div>
 

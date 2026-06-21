@@ -38,8 +38,8 @@ export default function RoleLayout() {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-50">
-      <div className="relative z-10 flex min-h-screen">
+    <div className="relative min-h-screen min-h-[100dvh] bg-slate-50">
+      <div className="relative z-10 flex min-h-screen min-h-[100dvh]">
         <Sidebar
           config={config}
           isOpen={sidebarOpen}
@@ -49,15 +49,15 @@ export default function RoleLayout() {
         />
 
         <div
-          className={`flex min-h-screen flex-1 flex-col transition-all duration-300 ${
+          className={`flex min-h-screen min-h-[100dvh] min-w-0 flex-1 flex-col transition-all duration-300 ${
             sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'
           }`}
         >
           <Header onMenuOpen={handleMenuOpen} sidebarCollapsed={sidebarCollapsed} />
-          <main className="flex-1 px-3 py-5 sm:px-6 sm:py-8 lg:px-8">
-            <div className="mx-auto max-w-7xl">
+          <main className="safe-bottom flex-1 px-3 py-4 2xs:px-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+            <div className="mx-auto w-full max-w-7xl min-w-0">
               <Outlet />
-              <div className="mt-10 border-t border-slate-200 pt-6">
+              <div className="mt-8 border-t border-slate-200 pt-5 sm:mt-10 sm:pt-6">
                 <DeveloperCredit variant="role-footer" />
               </div>
             </div>

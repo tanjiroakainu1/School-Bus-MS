@@ -8,40 +8,49 @@
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-slate-50 font-sans text-slate-900 antialiased;
+    @apply overflow-x-hidden bg-slate-50 font-sans text-slate-900 antialiased;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
 
   ::selection {
     @apply bg-blue-100 text-blue-900;
   }
+
+  img,
+  svg,
+  video {
+    @apply max-w-full;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 xs:w-auto xs:px-5;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2 active:scale-[0.98];
+    @apply inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2 active:scale-[0.98] xs:w-auto xs:px-5;
   }
 
   .btn-accent {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 active:scale-[0.98];
+    @apply inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 active:scale-[0.98] xs:w-auto xs:px-5;
   }
 
   .btn-danger {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-[0.98];
+    @apply inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-[0.98] xs:w-auto xs:px-5;
   }
 
   .btn-ghost {
-    @apply inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900;
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-slate-900;
   }
 
   .card {
-    @apply rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6;
+    @apply min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm 2xs:p-5 sm:p-6;
   }
 
   .card-interactive {
@@ -49,27 +58,48 @@
   }
 
   .input-field {
-    @apply min-h-[44px] w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm transition-all duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/10;
+    @apply min-h-[44px] w-full min-w-0 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-base text-slate-900 shadow-sm transition-all duration-200 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm;
   }
 
   .badge {
-    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold tracking-wide;
+    @apply inline-flex max-w-full items-center truncate rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide 2xs:px-3 2xs:text-xs;
   }
 
   .page-shell {
-    @apply animate-fade-in space-y-6 sm:space-y-8;
+    @apply animate-fade-in space-y-4 2xs:space-y-5 sm:space-y-6 lg:space-y-8;
   }
 
   .stat-grid {
-    @apply grid grid-cols-1 gap-4 xs:grid-cols-2 xl:grid-cols-4;
+    @apply grid grid-cols-1 gap-3 2xs:grid-cols-2 2xs:gap-4 xl:grid-cols-4;
   }
 
   .content-grid {
     @apply grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2;
   }
 
+  .chart-grid-primary {
+    @apply grid grid-cols-1 gap-4 min-w-0 2xs:gap-5 sm:gap-6 lg:grid-cols-3;
+  }
+
+  .chart-grid-primary-main {
+    @apply min-w-0 lg:col-span-2;
+  }
+
+  .chart-grid-secondary {
+    @apply grid grid-cols-1 gap-4 min-w-0 2xs:gap-5 sm:gap-6 md:grid-cols-2;
+  }
+
+  .chart-grid-tertiary {
+    @apply grid grid-cols-1 gap-4 min-w-0 2xs:gap-5 sm:gap-6 lg:grid-cols-3;
+  }
+
+  .chart-grid-full {
+    @apply min-w-0 w-full;
+  }
+
   .glass-header {
     @apply sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-md;
+    padding-top: env(safe-area-inset-top, 0px);
   }
 
   .table-shell {
@@ -77,11 +107,12 @@
   }
 
   .table-scroll {
-    @apply overflow-x-auto;
+    @apply -mx-px overflow-x-auto overscroll-x-contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .data-table {
-    @apply w-full min-w-[640px] text-left text-sm;
+    @apply w-full min-w-[520px] text-left text-sm sm:min-w-[640px];
   }
 
   .data-table thead {
@@ -89,11 +120,11 @@
   }
 
   .data-table th {
-    @apply px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-500 sm:px-6;
+    @apply whitespace-nowrap px-3 py-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 2xs:px-4 2xs:text-xs sm:px-6 sm:py-3.5;
   }
 
   .data-table td {
-    @apply px-4 py-4 text-slate-700 sm:px-6;
+    @apply px-3 py-3.5 text-slate-700 2xs:px-4 sm:px-6 sm:py-4;
   }
 
   .data-table tbody tr {
@@ -105,29 +136,48 @@
   }
 
   .mobile-card-item {
-    @apply rounded-2xl border border-slate-200 bg-white p-4 shadow-sm;
+    @apply rounded-2xl border border-slate-200 bg-white p-3.5 shadow-sm 2xs:p-4;
   }
 
   .hero-banner {
-    @apply relative overflow-hidden rounded-3xl bg-gradient-to-br p-6 text-white shadow-md sm:p-8;
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-br p-4 text-white shadow-md 2xs:rounded-3xl 2xs:p-5 sm:p-6 md:p-8;
   }
 
   .nav-scroll {
-    @apply flex gap-2 overflow-x-auto pb-1;
+    @apply flex max-w-full gap-2 overflow-x-auto overscroll-x-contain pb-1;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-scroll::-webkit-scrollbar {
     display: none;
   }
 
+  .nav-scroll > * {
+    scroll-snap-align: start;
+  }
+
   .section-title {
-    @apply text-lg font-bold tracking-tight text-slate-900 sm:text-xl;
+    @apply text-base font-bold tracking-tight text-slate-900 2xs:text-lg sm:text-xl;
   }
 
   .empty-state {
-    @apply flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 px-6 py-12 text-center;
+    @apply flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50 px-4 py-10 text-center 2xs:px-6 2xs:py-12;
+  }
+
+  .page-actions {
+    @apply flex w-full flex-col gap-2 xs:flex-row xs:flex-wrap xs:justify-end [&_.btn-primary]:w-full [&_.btn-secondary]:w-full [&_.btn-accent]:w-full [&_.btn-danger]:w-full xs:[&_.btn-primary]:w-auto xs:[&_.btn-secondary]:w-auto xs:[&_.btn-accent]:w-auto xs:[&_.btn-danger]:w-auto;
+  }
+
+  .filter-bar {
+    @apply flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .filter-bar .input-field,
+  .filter-bar .relative {
+    @apply w-full sm:max-w-md;
   }
 
   .developer-avatar {
@@ -140,19 +190,19 @@
   }
 
   .developer-card-sidebar {
-    @apply flex items-center gap-3 rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50/80 to-teal-50/50 p-3;
+    @apply flex items-center gap-3 rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50/80 to-teal-50/50 p-2.5 2xs:p-3;
   }
 
   .developer-card-public {
-    @apply flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm sm:flex-row sm:gap-5;
+    @apply flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm sm:flex-row sm:gap-5 sm:p-5;
   }
 
   .developer-card-login {
-    @apply flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-gradient-to-r from-slate-50 to-blue-50/40 p-4 sm:flex-row sm:gap-4;
+    @apply flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-gradient-to-r from-slate-50 to-blue-50/40 p-3 sm:flex-row sm:gap-4 sm:p-4;
   }
 
   .developer-card-role {
-    @apply flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 shadow-sm backdrop-blur-sm;
+    @apply flex flex-col items-start gap-2 rounded-xl border border-slate-200/80 bg-white/80 px-3 py-3 shadow-sm backdrop-blur-sm xs:flex-row xs:items-center xs:gap-3 xs:px-4;
   }
 
   .developer-skill-badge {
@@ -164,7 +214,7 @@
   }
 
   .developer-showcase {
-    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900/90 via-blue-950/80 to-teal-950/70 p-8 shadow-2xl backdrop-blur-xl sm:p-10;
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/90 via-blue-950/80 to-teal-950/70 p-6 shadow-2xl backdrop-blur-xl sm:rounded-3xl sm:p-8 md:p-10;
   }
 
   .developer-showcase-glow {
@@ -172,7 +222,7 @@
   }
 
   .developer-pill {
-    @apply inline-flex rounded-full border border-amber-400/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-300;
+    @apply inline-flex rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-amber-300 2xs:px-4 2xs:py-1.5 2xs:text-xs;
   }
 
   .developer-sparkle {
@@ -183,5 +233,13 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .touch-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }

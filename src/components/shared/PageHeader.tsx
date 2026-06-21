@@ -7,24 +7,24 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, description, action, badge }: PageHeaderProps) {
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+    <div className="flex flex-col gap-3 2xs:gap-4 sm:flex-row sm:items-start sm:justify-between">
       <div className="min-w-0 flex-1 animate-slide-up">
         {badge && (
-          <span className="mb-2 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-600">
+          <span className="mb-2 inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-600 2xs:px-3 2xs:text-xs">
             {badge}
           </span>
         )}
-        <h1 className="text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+        <h1 className="text-balance text-xl font-extrabold tracking-tight text-slate-900 2xs:text-2xl sm:text-3xl lg:text-4xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500 sm:text-base">
+          <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-slate-500 2xs:mt-2 sm:text-base">
             {description}
           </p>
         )}
       </div>
       {action && (
-        <div className="flex shrink-0 flex-wrap gap-2 sm:justify-end">{action}</div>
+        <div className="page-actions shrink-0">{action}</div>
       )}
     </div>
   );

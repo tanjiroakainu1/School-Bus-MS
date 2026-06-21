@@ -13,19 +13,19 @@ export default function PublicLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className={`relative min-h-screen bg-gradient-to-br ${THEME.public.bg}`}>
+    <div className={`relative min-h-screen min-h-[100dvh] bg-gradient-to-br ${THEME.public.bg}`}>
       <div className="pointer-events-none fixed inset-0 bg-slate-mesh" />
 
-      <div className="relative z-10 flex min-h-screen flex-col">
+      <div className="relative z-10 flex min-h-screen min-h-[100dvh] flex-col">
         <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-900/90 backdrop-blur-md">
-          <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            <Link to="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-              <div className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${THEME.public.logo} text-lg shadow-md ${THEME.public.logoShadow}`}>
+          <div className="mx-auto flex h-14 min-w-0 max-w-7xl items-center justify-between gap-2 px-3 2xs:h-16 2xs:px-4 sm:px-6 lg:px-8">
+            <Link to="/" className="flex min-w-0 items-center gap-2 2xs:gap-3" onClick={() => setMenuOpen(false)}>
+              <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br text-base 2xs:h-10 2xs:w-10 2xs:text-lg ${THEME.public.logo} shadow-md ${THEME.public.logoShadow}`}>
                 🚌
               </div>
               <div className="hidden min-w-0 sm:block">
-                <p className="text-sm font-extrabold text-white">School Bus MS</p>
-                <p className="text-xs text-slate-400">Management System</p>
+                <p className="truncate text-sm font-extrabold text-white">School Bus MS</p>
+                <p className="truncate text-xs text-slate-400">Management System</p>
               </div>
             </Link>
 
@@ -46,7 +46,7 @@ export default function PublicLayout() {
                   {link.label}
                 </NavLink>
               ))}
-              <Link to="/login" className="btn-primary !min-h-[40px] !px-5 !py-2 text-sm">
+              <Link to="/login" className="btn-primary !min-h-[40px] !w-auto !px-5 !py-2 text-sm">
                 Get Started
               </Link>
             </nav>
@@ -54,7 +54,7 @@ export default function PublicLayout() {
             <button
               type="button"
               onClick={() => setMenuOpen((o) => !o)}
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white md:hidden"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-white active:scale-95 md:hidden"
               aria-label="Toggle menu"
             >
               {menuOpen ? '✕' : '☰'}
@@ -63,10 +63,10 @@ export default function PublicLayout() {
 
           <div
             className={`overflow-hidden border-t border-white/10 bg-slate-900/95 transition-all duration-300 md:hidden ${
-              menuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+              menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
-            <nav className="flex flex-col gap-1 px-4 py-3">
+            <nav className="safe-bottom flex flex-col gap-1 px-3 py-3 2xs:px-4">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
@@ -89,23 +89,23 @@ export default function PublicLayout() {
           </div>
         </header>
 
-        <main className="flex-1">
+        <main className="min-w-0 flex-1">
           <Outlet />
         </main>
 
-        <footer className="border-t border-white/10 bg-slate-900/80">
-          <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-            <DeveloperCredit variant="public-footer" className="mb-8" />
-            <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
+        <footer className="safe-bottom border-t border-white/10 bg-slate-900/80">
+          <div className="mx-auto max-w-7xl px-3 py-8 2xs:px-4 sm:px-6 sm:py-10 lg:px-8">
+            <DeveloperCredit variant="public-footer" className="mb-6 sm:mb-8" />
+            <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-5 sm:flex-row sm:pt-6">
               <div className="flex items-center gap-3">
-                <div className={`flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br ${THEME.public.logo} text-sm`}>
+                <div className={`flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br text-sm ${THEME.public.logo}`}>
                   🚌
                 </div>
-                <p className="text-sm text-slate-400">
+                <p className="text-center text-xs text-slate-400 sm:text-left sm:text-sm">
                   © {new Date().getFullYear()} School Bus Management System
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <div className="flex flex-wrap justify-center gap-3 text-xs sm:gap-4 sm:text-sm">
                 <Link to="/" className="text-slate-400 transition hover:text-white">Home</Link>
                 <Link to="/login" className="text-slate-400 transition hover:text-white">Sign In</Link>
                 <Link to="/register" className="text-slate-400 transition hover:text-white">Register</Link>

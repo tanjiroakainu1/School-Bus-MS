@@ -83,7 +83,7 @@ export default function TransportationReports() {
   const renderCharts = () => {
     if (reportType === 'daily') {
       return (
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="chart-grid-secondary">
           <HourlyActivityChart title="Daily Activity" subtitle="Buses and students by hour" />
           <FleetStatusChart data={fleetData} title="Fleet Snapshot" subtitle={`${buses.length} buses total`} />
         </div>
@@ -91,14 +91,14 @@ export default function TransportationReports() {
     }
     if (reportType === 'weekly') {
       return (
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="chart-grid-secondary">
           <WeeklyTripsChart title="Weekly Trips" subtitle="On-time vs delayed across the week" />
           <RouteCapacityChart data={routeCapacityData} />
         </div>
       );
     }
     return (
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="chart-grid-secondary">
         <AttendanceTrendChart title="Monthly Attendance" subtitle="Boarding rates over time" />
         <RequestsStatusChart data={requestData} title="Request Pipeline" subtitle="Pending, approved & rejected" />
       </div>

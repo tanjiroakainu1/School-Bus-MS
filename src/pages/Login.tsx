@@ -109,7 +109,7 @@ export default function Login() {
   };
 
   return (
-    <div className="px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
+    <div className="px-3 py-8 2xs:px-4 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
       <div className="mx-auto w-full max-w-2xl animate-slide-up">
         <div className="mb-8 text-center">
           <Link to="/" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:text-white">
@@ -128,7 +128,7 @@ export default function Login() {
           </p>
         </div>
 
-        <div className="rounded-3xl border border-slate-500/20 bg-white/95 p-6 shadow-2xl shadow-slate-900/20 backdrop-blur-xl sm:p-8">
+        <div className="rounded-2xl border border-slate-500/20 bg-white/95 p-4 shadow-2xl shadow-slate-900/20 backdrop-blur-xl 2xs:rounded-3xl 2xs:p-5 sm:p-8">
           <div className="mb-6 flex rounded-2xl bg-slate-50/80 p-1 ring-1 ring-slate-200">
             <button
               type="button"
