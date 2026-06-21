@@ -168,7 +168,7 @@
   }
 
   .page-actions {
-    @apply flex w-full flex-col gap-2 xs:flex-row xs:flex-wrap xs:justify-end [&_.btn-primary]:w-full [&_.btn-secondary]:w-full [&_.btn-accent]:w-full [&_.btn-danger]:w-full xs:[&_.btn-primary]:w-auto xs:[&_.btn-secondary]:w-auto xs:[&_.btn-accent]:w-auto xs:[&_.btn-danger]:w-auto;
+    @apply flex w-full flex-col gap-2 xs:flex-row xs:flex-wrap xs:justify-end sm:w-auto [&_.btn-primary]:w-full [&_.btn-secondary]:w-full [&_.btn-accent]:w-full [&_.btn-danger]:w-full xs:[&_.btn-primary]:w-auto xs:[&_.btn-secondary]:w-auto xs:[&_.btn-accent]:w-auto xs:[&_.btn-danger]:w-auto;
   }
 
   .filter-bar {

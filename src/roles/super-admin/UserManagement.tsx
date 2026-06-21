@@ -55,25 +55,30 @@ export default function UserManagement() {
 
       {error && <AlertBanner type="warning" message={error} />}
 
-      <Card>
-        <div className="mb-6">
-          <SearchInput
-            value={search}
-            onChange={setSearch}
-            placeholder="Search users..."
-            className="max-w-sm"
-          />
-        </div>
+      <div className="filter-bar">
+        <p className="text-sm font-medium text-slate-500">
+          {filtered.length} user{filtered.length !== 1 ? 's' : ''}
+        </p>
+        <SearchInput
+          value={search}
+          onChange={setSearch}
+          placeholder="Search users..."
+          className="w-full sm:max-w-xs"
+        />
+      </div>
 
+      <Card noPadding={filtered.length > 0}>
         {filtered.length === 0 ? (
-          <EmptyState
-            icon="👥"
-            title="No users found"
-            description={search ? 'Try adjusting your search terms.' : 'Add a user to get started.'}
-          />
+          <div className="p-6">
+            <EmptyState
+              icon="👥"
+              title="No users found"
+              description={search ? 'Try adjusting your search terms.' : 'Add a user to get started.'}
+            />
+          </div>
         ) : (
           <>
-            <div className="table-shell hidden sm:block">
+            <div className="table-shell hidden border-0 shadow-none sm:block">
               <div className="table-scroll">
                 <table className="data-table">
                   <thead>
@@ -115,7 +120,7 @@ export default function UserManagement() {
               </div>
             </div>
 
-            <div className="mobile-card-list">
+            <div className="mobile-card-list p-4 2xs:p-5">
               {filtered.map((user) => (
                 <div key={user.id} className="mobile-card-item">
                   <div className="mb-3">
