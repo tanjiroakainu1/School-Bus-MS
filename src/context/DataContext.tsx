@@ -174,7 +174,7 @@ interface DataContextType extends AppData {
   updateRouteAssignments: (assignments: { routeId: string; busId: string; driverId: string }[]) => void;
   updateSchedules: (schedules: ScheduleEntry[]) => void;
   updateScheduleEntry: (routeId: string, field: keyof ScheduleEntry, value: string) => void;
-  updateStudent: (id: string, updates: Partial<Pick<Student, 'name' | 'grade' | 'pickupPoint' | 'dropOffPoint'>>) => void;
+  updateStudent: (id: string, updates: Partial<Omit<Student, 'id'>>) => void;
   addStudent: (student: Omit<Student, 'id'>) => Student;
   deleteStudent: (id: string) => void;
   upsertAttendanceRecord: (record: Omit<AttendanceRecord, 'id'>) => void;
@@ -314,7 +314,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   );
 
   const updateStudent = useCallback(
-    (id: string, updates: Partial<Pick<Student, 'name' | 'grade' | 'pickupPoint' | 'dropOffPoint'>>) => {
+    (id: string, updates: Partial<Omit<Student, 'id'>>) => {
       updateData((prev) => ({
         ...prev,
         students: prev.students.map((s) => (s.id === id ? { ...s, ...updates } : s)),
