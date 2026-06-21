@@ -174,7 +174,9 @@ interface DataContextType extends AppData {
   updateRouteAssignments: (assignments: { routeId: string; busId: string; driverId: string }[]) => void;
   updateSchedules: (schedules: ScheduleEntry[]) => void;
   updateScheduleEntry: (routeId: string, field: keyof ScheduleEntry, value: string) => void;
-  updateStudent: (id: string, updates: Partial<Pick<Student, 'pickupPoint' | 'dropOffPoint'>>) => void;
+  updateStudent: (id: string, updates: Partial<Pick<Student, 'name' | 'grade' | 'pickupPoint' | 'dropOffPoint'>>) => void;
+  addStudent: (student: Omit<Student, 'id'>) => Student;
+  deleteStudent: (id: string) => void;
   upsertAttendanceRecord: (record: Omit<AttendanceRecord, 'id'>) => void;
   addAttendanceRecords: (records: Omit<AttendanceRecord, 'id'>[]) => void;
   addRequest: (request: Omit<TransportationRequest, 'id'>) => TransportationRequest;
@@ -312,14 +314,35 @@ export function DataProvider({ children }: { children: ReactNode }) {
   );
 
   const updateStudent = useCallback(
-    (id: string, updates: Partial<Pick<Student, 'pickupPoint' | 'dropOffPoint'>>) => {
+    (id: string, updates: Partial<Pick<Student, 'name' | 'grade' | 'pickupPoint' | 'dropOffPoint'>>) => {
       updateData((prev) => ({
         ...prev,
         students: prev.students.map((s) => (s.id === id ? { ...s, ...updates } : s)),
+        attendance: prev.attendance.map((a) =>
+          a.studentId === id && updates.name ? { ...a, studentName: updates.name } : a
+        ),
+        requests: prev.requests.map((r) =>
+          r.studentId === id && updates.name ? { ...r, studentName: updates.name } : r
+        ),
       }));
     },
     [updateData]
   );
+
+  const addStudent = useCallback((student: Omit<Student, 'id'>) => {
+    const newStudent: Student = { ...student, id: Date.now().toString() };
+    updateData((prev) => ({ ...prev, students: [...prev.students, newStudent] }));
+    return newStudent;
+  }, [updateData]);
+
+  const deleteStudent = useCallback((id: string) => {
+    updateData((prev) => ({
+      ...prev,
+      students: prev.students.filter((s) => s.id !== id),
+      attendance: prev.attendance.filter((a) => a.studentId !== id),
+      requests: prev.requests.filter((r) => r.studentId !== id),
+    }));
+  }, [updateData]);
 
   const upsertAttendanceRecord = useCallback((record: Omit<AttendanceRecord, 'id'>) => {
     updateData((prev) => {
@@ -466,6 +489,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
         updateSchedules,
         updateScheduleEntry,
         updateStudent,
+        addStudent,
+        deleteStudent,
         upsertAttendanceRecord,
         addAttendanceRecords,
         addRequest,
